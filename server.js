@@ -1,29 +1,42 @@
 #!/usr/bin/env node
-var http = require('http')
-var request = require('request')
-var fs = require('fs');
-var index = fs.readFileSync('index.html');
+var parse = require('url').parse;
 
-var host = process.env.PORT ? '0.0.0.0' : '127.0.0.1';
+var data = '<?xml version="1.0"?>' +
+  '<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">' +
+  '<cross-domain-policy>' +
+  '<site-control permitted-cross-domain-policies="none"/>' +
+  '</cross-domain-policy>';
+
+module.exports = function crossdomain(options) {
+
+  options = options || {};
+  var caseSensitive = options.caseSensitive;
+
+  return function crossdomain(req, res, next) {
+
+    var pathname = parse(req.url).pathname;
+
+    var uri;
+    if (caseSensitive) {
+      uri = pathname;
+    } else {
+      uri = pathname.toLowerCase();
+    }
+
+    if ('/crossdomain.xml' === uri) {
+      res.writeHead(200, {
+        'Content-Type': 'application/xml'
+      });
+      res.end(data);
+    } else {
+      next();
+    }
+
+  };
+
+};
+
 var port = process.env.PORT || 1337;
-
-http.createServer(function (req, res) {
-  console.log(req.url);
-  res.setTimeout(25000)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  if (req.url == "/"){
-  	res.writeHead(200);
-  	res.write(index);
-  	res.end();
-  }else{
-  try {
-    request(req.url.slice(1), {encoding: null}, function(error, response, body) {
-      res.write(body)
-      res.end()
-    })
-  }
-  catch(e) {}}
-}).listen(port)
 
 var cors_proxy = require('cors-anywhere');
 
