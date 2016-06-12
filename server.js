@@ -3,7 +3,7 @@ var http = require('http'),
 	fs = require('fs'),
 	domain = require('domain'),
 	favicon = require('zlib').gzipSync(fs.readFileSync('favicon.ico'))
-	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml')),
+	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml'))
 	requestOptions = {
 		encoding: null,
 		rejectUnauthorized: false,
