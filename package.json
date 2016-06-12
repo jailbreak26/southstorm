@@ -1,5 +1,5 @@
 {
-  "name": "my-cors-proxy",
+  "name": "southstorm",
   "version": "1.0.0",
   "description": "CORS proxy for my personal usage powered by cors-anywhere",
   "main": "server.js",
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gon250/my-cors-proxy.git"
+    "url": "https://github.com/jailbreak26/southstorm.git"
   },
   "keywords": [
     "cors"
   ],
-  "author": "Gonzalo Barba",
+  "author": "jailbreak26",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gon250/my-cors-proxy/issues"
+    "url": "https://github.com/jailbreak26/southstorm/issues"
   },
-  "homepage": "https://github.com/gon250/my-cors-proxy",
+  "homepage": "https://github.com/jailbreak26/southstorm",
   "dependencies": {
     "cors-anywhere": "^0.2.5"
   }
