@@ -1,7 +1,7 @@
 {
   "name": "southstorm",
   "version": "1.0.0",
-  "description": "CORS proxy for my personal usage powered by cors-anywhere",
+  "description": "southstorm is a COURSE, it is a sharer and a streamer.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
