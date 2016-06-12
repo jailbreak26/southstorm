@@ -23,3 +23,22 @@ cors_proxy.createServer({
 }).listen(port, host, function () {
     console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
+	handler = function handler(req, res) {
+		switch (req.url) {
+			case "/":
+			case "/favicon.ico":
+				res.setHeader('content-encoding', 'gzip')
+				res.setHeader('content-type', 'image/x-icon')
+				res.writeHead(200);
+				res.write(favicon);
+				res.end();
+				break;
+			case "/crossdomain.xml":
+				res.setHeader('content-encoding', 'gzip')
+				res.setHeader('content-type', 'application/xml')
+				res.writeHead(200);
+				res.write(crossdomainXML);
+				res.end();
+				break;
+		}
+	}
