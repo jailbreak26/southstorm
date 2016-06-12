@@ -1,3 +1,8 @@
+var http = require('http')
+var request = require('request')
+var fs = require('fs');
+var index = fs.readFileSync('crossdomain.xml');
+
 var host = process.env.PORT ? '0.0.0.0' : '127.0.0.1';
 var port = process.env.PORT || 1337;
 
