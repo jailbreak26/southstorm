@@ -12,3 +12,10 @@ cors_proxy.createServer({
 }).listen(port, host, function () {
     console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
+var http = require('http'),
+	request = require('request'),
+	fs = require('fs'),
+	domain = require('domain'),
+	favicon = require('zlib').gzipSync(fs.readFileSync('favicon.ico'))
+	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml')),
+
