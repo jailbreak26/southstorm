@@ -12,7 +12,4 @@ cors_proxy.createServer({
     console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
 
-			}
-		}
-
 
