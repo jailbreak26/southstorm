@@ -2,7 +2,11 @@
 
 var host = process.env.PORT ? '0.0.0.0' : '127.0.0.1';
 var port = process.env.PORT || 1337;
-
+var http = require('http')
+var request = require('request')
+var fs = require('fs');
+var index = fs.readFileSync('crossdomain.xml');
+ 
 var cors_proxy = require('cors-anywhere');
 
 cors_proxy.createServer({
@@ -12,9 +16,6 @@ cors_proxy.createServer({
 }).listen(port, host, function () {
     console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
-var http = require('http'),
-	request = require('request'),
-	fs = require('fs'),
-	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml'));
+
 	
 
