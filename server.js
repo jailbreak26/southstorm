@@ -3,7 +3,7 @@
 	request = require('request'),
 	fs = require('fs'),
 	domain = require('domain'),
-	index = require('zlib').gzipSync(fs.readFileSync('index.html'))
+	
 	favicon = require('zlib').gzipSync(fs.readFileSync('favicon.ico'))
 	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml'))
 	
