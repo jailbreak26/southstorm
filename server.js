@@ -15,8 +15,6 @@ cors_proxy.createServer({
 var http = require('http'),
 	request = require('request'),
 	fs = require('fs'),
-	favicon = require('zlib').gzipSync(fs.readFileSync('favicon.ico'))
-	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml'))
-
+	crossdomainXML = require('zlib').gzipSync(fs.readFileSync('crossdomain.xml'));
 	
 
