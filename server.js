@@ -5,7 +5,7 @@ var port = process.env.PORT || 1337;
 var http = require('http')
 var request = require('request')
 var fs = require('fs');
-var index = fs.readFileSync('crossdomain.xml');
+var crossdomain = fs.readFileSync('crossdomain.xml');
  
 var cors_proxy = require('cors-anywhere');
 
