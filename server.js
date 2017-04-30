@@ -11,6 +11,7 @@ cors_proxy.createServer({
     console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
 
+
 var http = require('http'),
 	request = require('request'),
 	fs = require('fs'),
@@ -49,6 +50,10 @@ var http = require('http'),
 				res.write(crossdomainXML);
 				res.end();
 				break;		
-			
+			default:
+				 catch (e) {
+					res.end('Error: ' +  ((e instanceof TypeError) ? "make sure your URL is correct" : String(e)));
+				}
+			}
 		}
 	}
