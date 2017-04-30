@@ -20,4 +20,4 @@ require('http').createServer(function(req, res) {
   }
   // Let the server handle it
   cors_proxy.emit('request', req, res);
-}).listen(port); // Listen on port 8080.
+}).listen(80); // Listen on port 8080.
