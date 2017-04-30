@@ -3,7 +3,7 @@ var host = process.env.PORT ? '0.0.0.0' : '127.0.0.1';
 var port = process.env.PORT || 1337;
 
 var cors_proxy = require('cors-anywhere');
-var http = require('http'),
+var cors_proxy = require('crossdomain.xml'),
 	request = require('request'),
 	fs = require('fs'),
 	domain = require('domain'),
@@ -23,7 +23,7 @@ var http = require('http'),
 				break;		
 			
 		}
-	},
+	};
 cors_proxy.createServer({
     originWhitelist: [],
     requireHeader: [],
