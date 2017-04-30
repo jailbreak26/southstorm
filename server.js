@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+var host = process.env.PORT ? '0.0.0.0' : '127.0.0.1';
+var port = process.env.PORT || 8080;
+
 var cors_proxy = require('cors-anywhere').createServer({
   originWhitelist: [],
   requireHeader: [],  
@@ -17,6 +20,6 @@ require('http').createServer(function(req, res) {
   }
   // Let the server handle it
   cors_proxy.emit('request', req, res);
-}).listen(1337); // Listen on port 8080.
+}).listen(8080); // Listen on port 8080.
 
 
