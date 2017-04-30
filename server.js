@@ -26,12 +26,7 @@ var http = require('http'),
 	},
 	server = http.createServer(function (req, res) {
 		var d = domain.create();
-		d.on('error', function (e){
-			console.log('ERROR', e.stack);
-
-			res.statusCode = 500;
-			res.end('Error: ' + ((e instanceof TypeError) ? "make sure your URL is correct" : String(e)));
-		});
+		);
 
 		d.add(req);
 		d.add(res);
@@ -49,11 +44,7 @@ var http = require('http'),
 				res.writeHead(200);
 				res.write(crossdomainXML);
 				res.end();
-				break;		
-			default:
-				 catch (e) {
-					res.end('Error: ' +  ((e instanceof TypeError) ? "make sure your URL is correct" : String(e)));
-				}
+				break;
 			}
 		}
 	}
