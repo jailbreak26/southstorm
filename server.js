@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-var cors_proxy = require('cors-anywhere').createServer({
-  requireHeader: ['origin', 'x-requested-with'],
-  removeHeaders: [
-    'cookie',
-    'cookie2',
-  ],
-  // See README.md for other options
+var cors_proxy = require('cors-anywhere');
+
+cors_proxy.createServer({
+    originWhitelist: [],
+    requireHeader: [],
+    removeHeaders: ['cookie', 'cookie2']
+}).listen(port, host, function () {
+    console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
 
 var fs = require('fs');
