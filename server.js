@@ -49,29 +49,6 @@ var http = require('http'),
 				res.write(crossdomainXML);
 				res.end();
 				break;		
-			default:
-				if (bannedUrls.test(req.url)) {
-					res.writeHead(403);
-					res.end('FORBIDDEN');
-				} else {
-				try {
-					res.setTimeout(25000);
-					res.setHeader('Access-Control-Allow-Origin', '*');
-					res.setHeader('Access-Control-Allow-Credentials', false);
-					res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-					res.setHeader('Expires', new Date(Date.now() + 86400000).toUTCString()); // one day in the future
-					var r = request(req.url.slice(1), requestOptions);
-					r.pipefilter = function(response, dest) {
-						for (var header in response.headers) {
-							if (!allowedOriginalHeaders.test(header)) {
-								dest.removeHeader(header);	
-							}
-						}
-					};
-					r.pipe(res);
-				} catch (e) {
-					res.end('Error: ' +  ((e instanceof TypeError) ? "make sure your URL is correct" : String(e)));
-				}
-			}
+			
 		}
 	}
